@@ -30,7 +30,6 @@ impl Cell {
             vel: vec2(rand::gen_range(-1f32, 1f32), 1f32).normalize(),
         }
     }
-
     pub fn update(&mut self, dt: f32) {
         self.rect.x += self.vel.x * dt * CELL_SPEED;
         self.rect.y += self.vel.y * dt * CELL_SPEED;
@@ -65,8 +64,6 @@ fn window_conf() -> Conf {
 #[macroquad::main(window_conf())]
 async fn main() {
     let mut cell = Cell::new();
-
-    rand::srand(miniquad::date::now().to_bits());
 
     loop {
         clear_background(Color::new(0.,0.,0.1,1.0));
