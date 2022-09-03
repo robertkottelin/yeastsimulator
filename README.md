@@ -7,6 +7,7 @@ Make the cells collide and bounce
     - ~~Walls~~
     - Other cells
 ~~Simulate surrounding nutrition~~
+    Dynamic
 Multiply cells when in nutrition
 Simulate the energy consumption of a cell
 Have genetics
