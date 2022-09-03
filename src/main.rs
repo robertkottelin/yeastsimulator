@@ -2,6 +2,7 @@ use macroquad::prelude::*;
 
 const CELL_SIZE: f32 = 10f32;
 const CELL_SPEED: f32 = 100f32;
+const STARTING_POPULATION: i32 = 10i32;
 
 pub enum LifecyclePhase {
     Alive,
@@ -66,10 +67,11 @@ fn window_conf() -> Conf {
 #[macroquad::main(window_conf())]
 async fn main() {
     let mut cells = Vec::<Cell>::new();
-    cells.push(Cell::new(vec2(
-        screen_width() * 0.5f32 - CELL_SIZE * 0.5f32,
-        screen_height() * 0.6f32,
-    )));
+    let mut i: i32 = 0;
+    while i < STARTING_POPULATION {
+        cells.push(Cell::new(vec2(screen_width() * 0.5f32 - CELL_SIZE * 0.5f32, screen_height() * 0.6f32)));
+        i = i + 1;
+    }  
 
 
     loop {
