@@ -12,11 +12,6 @@ pub enum LifecyclePhase {
     Dead
 }
 
-pub enum Gender {
-    Male,
-    Female
-}
-
 #[derive(Debug)]
 pub struct Cell {
     rect: Rect,
