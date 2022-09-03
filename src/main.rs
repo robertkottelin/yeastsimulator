@@ -19,11 +19,13 @@ pub struct Cell {
 }
 
 impl Cell {
-    pub fn new() -> Self {
+    pub fn new(pos: Vec2) -> Self {
         Self {
             rect: Rect::new(
-                screen_width() * 0.5f32,
-                screen_height() * 0.5f32,
+                // screen_width() * 0.5f32,
+                pos.x,
+                pos.y,
+                // screen_height() * 0.5f32,
                 CELL_SIZE,
                 CELL_SIZE,
             ),
@@ -63,7 +65,12 @@ fn window_conf() -> Conf {
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #[macroquad::main(window_conf())]
 async fn main() {
-    let mut cell = Cell::new();
+    let mut cells = Vec::<Cell>::new();
+    cells.push(Cell::new(vec2(
+        screen_width() * 0.5f32 - CELL_SIZE * 0.5f32,
+        screen_height() * 0.6f32,
+    )));
+
 
     loop {
         clear_background(Color::new(0.,0.,0.1,1.0));
@@ -71,8 +78,14 @@ async fn main() {
             screen_width()-300., screen_height()-5.,
             26.,
             LIGHTGRAY);
-        cell.draw();
-        cell.update(get_frame_time());
+
+        for cell in cells.iter_mut() {
+            cell.update(get_frame_time());
+            cell.draw();
+        }
+
+
+
         next_frame().await
     }
 }
