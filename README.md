@@ -9,3 +9,9 @@ Make the cells collide and bounce
 ~~Simulate surrounding nutrition~~
 Multiply cells when in nutrition
 Simulate the energy consumption of a cell
+Have genetics
+Develop genes (attributes)
+    Nutrition sensing
+    Speed
+    Longevity
+    Attack etc
